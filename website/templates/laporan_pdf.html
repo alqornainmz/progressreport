@@ -1,0 +1,41 @@
+<!-- templates/laporan_pdf.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Laporan PDF</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h1>Daftar Laporan</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nama</th>
+                <th>Kamar</th>
+                <th>Jenis Kelamin</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for lap in laporan %}
+            <tr>
+                <td>{{ lap.nama }}</td>
+                <td>{{ lap.gambar}}</td>
+                <td>{{ lap.wali_santri}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

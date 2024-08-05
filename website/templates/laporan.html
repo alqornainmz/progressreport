@@ -1,0 +1,303 @@
+{% extends "base.html" %}
+{% block content %}
+{% load static %}
+
+<div class="container"> 
+  <nav>
+    <ol class="breadcrumb p-3 mb-2 bg-transparent text-body">
+      <li class="breadcrumb-item fw-bold"><a href="{% url "beranda" %}">Beranda</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Laporan</li>
+    </ol>
+  </nav>
+</div>
+<div class="container"> 
+  {% comment %} <hr class="my-1" style="border-width: 3px;"> {% endcomment %}
+  <div class="col-sm text-right">
+    <form action="#" method="post" class="searchbox">
+      {% csrf_token %}
+      <input type="text" style="font-style: italic;" name="cari" placeholder="Cari Nama Santri" value="{{ kata_kunci }}">
+      <button type="submit" class="btn btn-primary p-2 rounded" ><i class="bi bi-search"></i></button>           
+    </form>
+  </div> 
+</div>
+    
+<div class="container">
+    <div class="row" style="overflow-x: auto;">
+        <table class="table" style="min-width:2500px">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">Aksi</th>
+                <th scope="col">Profil</th>
+                <th scope="col">NIUP</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Nama Wali</th>
+                <th scope="col">Tempat/Tanggal Lahir</th>
+                <th scope="col">Alamat</th>
+                <th scope="col">Lembaga</th>
+                <th scope="col">Wali Asuh</th>
+                <th scope="col">Kamar</th>
+                <th scope="col">Nilai Fiqih</th>
+                <th scope="col">Nilai Tauhid</th>
+                <th scope="col">Nilai Al-Qur'an</th>
+                <th scope="col">Pelanggaran</th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider">
+              {% for san in laporan %}
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>
+                  {% comment %} <a href="{% url 'print_pdf' san.niup forloop.counter %}" target="_blank" class="btn btn-primary p-2 rounded" style="font-size:20px"><i class="bi bi-printer"></i></a> {% endcomment %}
+                  <a href="#" onclick="printLaporan({{ san.niup }}, {{ forloop.counter }})" target="_blank" class="btn btn-primary p-2 rounded" style="font-size:20px"><i class="bi bi-printer"></i></a>
+                  <script>
+                    function printLaporan(laporan_id, nomor_surat) {
+                        var printWindow = window.open(
+                          '{% url "print_pdf" san.niup forloop.counter %}',
+                          '_blank'
+                        );
+                        
+                        printWindow.onload = function() {
+                            printWindow.print();
+                        };
+                    }
+                  </script>
+                  
+                  
+                  
+                  
+                  <a href="{% url 'generate_pdf' san.niup forloop.counter %}" class="btn btn-primary p-2 rounded" style="font-size:20px"><i class="bi bi-cloud-download"></i></a>
+                  <button type="button" class="btn btn-primary p-2 rounded" style="font-size:20px" data-bs-toggle="modal" data-bs-target="#disablebackdrop{{san.id}}"><i class="bi bi-eye"></i></button>
+                </td>
+                <td><img class="rounded" style="width:40px" src="{{san.gambar}}"></td>
+                <td>{{san.niup}}</td>
+                <td>{{san.nama_santri}}</td>
+                <td>{{san.wali_santri}}</td>
+                <td>{{san.tmp_lahir}}, {{san.tgl_lahir}}</td>
+                <td>{{san.alamat}}</td>
+                <td>{{san.lembaga}}</td>
+                <td>{{san.wali_asuh}}</td>
+                <td>{{san.kamar}}</td>
+                <td>{{san.nilai_fiqih}}</td>
+                <td>{{san.nilai_tauhid}}</td>
+                <td>{{san.nilai_alquran}}</td>
+                <td>{{san.pelanggaran}}</td>
+                <div class="modal fade" id="disablebackdrop{{san.id}}" tabindex="-1" data-bs-backdrop="false">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">Detail</h5>
+                        <i class="bi bi-x" style="font-size:25px" type="button" data-bs-dismiss="modal" aria-label="Close"></i>
+                      </div>
+                      <div class="modal-body px-4">
+                        <div>
+                          <img class="position-absolute" style="width:80px" src="{% static 'img/nj.png' %}">
+                          <div class="text-center">
+                            <h4>PONDOK PESANTREN NURUL JADID</h4>
+                            <h4 style="margin-top:-8px" class="fw-bold">BIRO KEPESANTRENAN</h4>
+                            <h4 style="margin-top:-8px">DAERAH SYEKH NAWAWI AL-BANTANI</h4>
+                            <h6 class="mt-4 border border-dark rounded" style="font-size:13px">PO BOX 1 Paiton Probolinggo 67291 Jawa Timur Telp. (0335) 771731 E-Mail : syekhnawawialbantani@gmail.com</h6>
+                            <h1 class="border border-bottom border-dark mt-1"></h1>
+                            <br>
+                            <h6 class="text-center fw-semibold text-decoration-underline">LAPORAN PENILAIAN HASIL BELAJAR</h6>
+                            <h6 style="margin-top:-10px">NJ-F/02.01.D/A.III/0010/06.2024</h6>
+                            <br>
+                          </div>
+                          <div class="d-flex my-2  w-100 justify-content-between">
+                            <div style="width:50%">
+                              <div class="d-flex">
+                                <div style="width:120px">
+                                  Nama
+                                </div>  
+                                <div class="text-start" style="width:400px">
+                                  : {{san.nama_santri}}
+                                </div>  
+                              </div>
+                              <div class="d-flex">
+                                <div style="width:120px">
+                                  NIUP
+                                </div>  
+                                <div class="text-start" style="width:400px">
+                                  : 123456789
+                                </div>  
+                              </div>
+                              <div class="d-flex">
+                                <div style="width:120px">
+                                  Lembaga
+                                </div>  
+                                <div class="text-start" style="width:400px">
+                                  : {{san.lembaga}}
+                                </div>  
+                              </div> 
+                            </div>
+                            <div style="width:50%">
+                              <div class="d-flex">
+                                <div style="width:120px">
+                                  Nama Wali
+                                </div>  
+                                <div class="text-start" style="width:200px">
+                                  : {{san.wali_santri}}
+                                </div>  
+                              </div>
+                              <div class="d-flex">
+                                <div style="width:120px">
+                                  Alamat
+                                </div>  
+                                <div class="text-start" style="width:200px">
+                                  : {{san.alamat}}
+                                </div>  
+                              </div>
+                              <div class="d-flex">
+                                <div style="width:120px">
+                                  Kamar
+                                </div>  
+                                <div class="text-start" style="width:200px">
+                                  : {{san.kamar}}
+                                </div>  
+                              </div>
+                            </div>
+                          </div>
+                          <div style="width:100%">
+                            <div class="d-flex ">
+                              <div style="width:5%" class=" border border-dark text-center py-3">
+                                No
+                              </div>  
+                              <div  style="width:30%" class="border border-dark text-center py-3">
+                                Mata Pelajaran
+                              </div>  
+                              <div style="width:15%" class="border border-dark text-center py-3">
+                                KKM
+                              </div>  
+                              <div style="width:50%">
+                                <div class="border border-dark text-center">Nilai</div>
+                                <div class="d-flex">
+                                  <div style="width:20%" class="border border-dark text-center py-1">Angka</div>
+                                  <div style="width:20%" class="border border-dark text-center py-1">Huruf</div>
+                                  <div style="width:60%" class="border border-dark text-center py-1">Terbilang</div>
+                                </div>
+                              </div>  
+                            </div>
+                            <div class="d-flex ">
+                              <div style="width:5%" class=" border border-dark text-center">
+                                1
+                              </div>  
+                              <div  style="width:30%" class="border border-dark text-center">
+                                Tauhid
+                              </div>  
+                              <div style="width:15%" class="border border-dark text-center">
+                                62
+                              </div>  
+                              <div style="width:50%" class="d-flex ">
+                                  <div style="width:20%" class="border border-dark text-center">-</div>
+                                  <div style="width:20%" class="border border-dark text-center">-</div>
+                                  <div style="width:60%" class="border border-dark text-center">-</div>
+                              </div>  
+                            </div>
+                            <div class="d-flex ">
+                              <div style="width:5%" class=" border border-dark text-center">
+                                2
+                              </div>  
+                              <div  style="width:30%" class="border border-dark text-center">
+                                Fiqih
+                              </div>  
+                              <div style="width:15%" class="border border-dark text-center">
+                                89
+                              </div>  
+                              <div style="width:50%" class="d-flex ">
+                                  <div style="width:20%" class="border border-dark text-center">-</div>
+                                  <div style="width:20%" class="border border-dark text-center">-</div>
+                                  <div style="width:60%" class="border border-dark text-center">-</div>
+                              </div>  
+                            </div>
+                            <div class="d-flex ">
+                              <div style="width:5%" class=" border border-dark text-center">
+                                3
+                              </div>  
+                              <div  style="width:30%" class="border border-dark text-center">
+                                Al-Qur'an
+                              </div>  
+                              <div style="width:15%" class="border border-dark text-center">
+                                98
+                              </div>  
+                              <div style="width:50%" class="d-flex ">
+                                  <div style="width:20%" class="border border-dark text-center">-</div>
+                                  <div style="width:20%" class="border border-dark text-center">-</div>
+                                  <div style="width:60%" class="border border-dark text-center">-</div>
+                              </div>  
+                            </div>
+                            <div class="d-flex ">
+                              <div style="width:50%" class=" border border-dark text-center">
+                                Jumlah
+                              </div>  
+                              <div style="width:50%" class="d-flex ">
+                                  <div style="width:20%" class="border border-dark text-center">-</div>
+                                  <div style="width:80%" class="border border-dark text-center">-</div>
+                              </div>  
+                            </div>
+                            <div class="d-flex ">
+                              <div style="width:50%" class=" border border-dark text-center">
+                                Rata-Rata
+                              </div>  
+                              <div style="width:50%" class="d-flex ">
+                                  <div style="width:20%" class="border border-dark text-center">-</div>
+                                  <div style="width:80%" class="border border-dark text-center">-</div>
+                              </div>  
+                            </div>
+                            <div style="padding:50px">
+                              <div class="d-flex ">
+                                <div style="width:60%">
+                                  
+                                </div>  
+                                <div style="width:40%" class="d-flex ">
+                                    <div style="width:40%" class="">Diberikan di</div>
+                                    <div style="width:60%" class="">: Paiton</div>
+                                </div>  
+                              </div>
+                              <div class="d-flex ">
+                                <div style="width:60%">   
+                                </div>  
+                                <div style="width:40%" class="d-flex ">
+                                    <div style="width:40%" >Tangal</div>
+                                    <div style="width:60%" >: 18 Desember 2024</div>
+                                </div>  
+                              </div>
+                              <div class="d-flex ">
+                                <div style="width:60%"> 
+                                  Wali Santri,  
+                                </div>  
+                                <div style="width:40%">
+                                  Kepala Daerah,
+                                </div>  
+                              </div>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <div class="d-flex ">
+                                <div style="width:60%"> 
+                                  (.......................................)  
+                                </div>  
+                                <div style="width:40%">
+                                  MUHAMMAD ZUBAIR, S.Kom.
+                                </div>  
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" style="font-size:15px" class="btn btn-primary p-2 rounded" data-bs-dismiss="modal">Tutup</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </tr>
+              {% empty %}
+                <div class="alert alert-danger mr-4">Data Kosong </div>
+              {% endfor %}
+            </tbody>
+        </table>    
+    </div>
+</div>
+{% endblock content %}

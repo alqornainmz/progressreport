@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+{% comment %} style="background-image: url('{% static 'img/bg/others_bg.jpg' %}');" {% endcomment %}
+
+{% comment %} <div class="video-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div>
+                    <div class="video-content">
+                        <a><img src="" alt=""></a>
+                        <span class="text-center">Syekh Nawawi Al-Bantani</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> {% endcomment %}
+
+<div class="slider-area">
+    {% for slid in slide %}
+    <div class="pages-title">
+        <div class="single-slider slider-height slider-height-breadcrumb d-flex align-items-center" style="background-image: url('{{slid.gambar_slide}}');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="slider-content slider-content-breadcrumb text-center">
+                            <h1 class="white-color f-700">{{slid.teks_awal}}</h1>
+                            <nav class="text-center" aria-label="breadcrumb">
+                                <ol class="breadcrumb justify-content-center">
+                                    <li class="breadcrumb-item active" aria-current="page">{{slid.teks_dua}}</li>
+                                    <li class="breadcrumb-item active" aria-current="page">{{slid.teks_tiga}}</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+        <div class="alert alert-danger mr-4">Data Kosong </div>
+    {% endfor %}
+</div>
+{% comment %} <div class="slider-area">
+    <div class="pages-title">
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="slider-content slider-content-breadcrumb text-center">
+                        <h1 class="white-color f-700">asssssssssssssssssssssssssssssssssssssssssss</h1>
+                        <nav class="text-center" aria-label="breadcrumb">
+                            <img src="{% static 'img/slider/2.jpg' %}" class="img-fluid" alt="...">
+                        </nav>
+                    </div>
+                </div>
+            </div>     
+    </div>
+</div> {% endcomment %}
+<div class="subscribe-area">
+    <div class="container">
+        <div class="subscribe-box">
+            <div class="row">
+                <div class="col-xl-10 offset-xl-1 col-lg-10 offset-lg-1 col-md-12">
+                    <div class="row justify-content-between">
+                        <div class="col-xl-6 col-lg-7 col-md-8">
+                            <div class="subscribe-text">
+                                <h1>Ikuti</h1>
+                                <span>Informasi terkait santri Anda hanya di Website ini</span>
+                            </div>
+                        </div>
+                        {% comment %} <div class="col-xl-4 col-lg-5 col-md-4 justify-content-end">
+                            <div class="email-submit-form">
+                                <div class="subscribe-form">
+                                    <form action="#">
+                                        <input placeholder="Enter your email" type="email">
+                                        <i class="fas fa-long-arrow-alt-right"></i>
+                                    </form>
+                                </div>
+                            </div>
+                        </div> {% endcomment %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- subscribe end -->
+
+{% endblock content %}

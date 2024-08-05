@@ -1,0 +1,227 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="container"> 
+    <nav>
+      <ol class="breadcrumb p-3 mb-2 bg-transparent text-body">
+        <li class="breadcrumb-item fw-bold"><a href="{% url "beranda" %}">Beranda</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Profil</li>
+      </ol>
+    </nav>
+  </div>
+<div id="about" class="about-area pt-100 pb-70" >
+    <div class="container ">
+        <div class="row">
+            {% for pro in profil %}
+            <div class="col-xl-7 col-lg-7">
+                <div class="about-title-section mb-30">
+                    <h1>Selamat  Datang </h1>
+                    <h2>di Daerah Syekh Nawawi Al-Bantani</h2>
+                    <p></p>
+                    <p>{{pro.deskripsi}}</p>
+                    <a href="{% url "laporan" %}">
+                    <button class="theme-btn blue-bg-border mt-20"><span class="btn-text">Cari santri</span></button>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-5 col-lg-5">
+                <div class="about-right-img ms-60">
+                    <img class="rounded" style="width:250px" src="{{pro.gambar}}" alt="">
+                </div>
+            </div>
+            {% empty %}
+                <div class="alert alert-danger mr-4">Data Kosong </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div id="about" class="about-area pt-100 pb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7 col-lg-7">
+                <div class="about-title-section mb-30">
+                    <h1>Struktur Pengurus</h1>
+                    <h2>Daerah Syekh Nawawi Al-Bantani</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% comment %} <div class="team-area pt-60 pt-sm-44">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-member mb-60 mb-sm-30 mb-xs-30">
+                    <div class="team-thumb">
+                        <img src="{% static 'images/team/1.png' %} " alt="Our Team Member">
+                    </div>
+                    <div class="team-content text-center">
+                        <h3>Ahmad Muftiddini Kumala</h3>
+                        <p>KEPALA DAERAH</p>
+                        <a href="#">info@example.com</a>
+                        <div class="team-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end single team member -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-member mb-60 mb-sm-30 mb-xs-30">
+                    <div class="team-thumb">
+                        <img src="{% static 'images/team/2.png' %}" alt="Our Team Member">
+                    </div>
+                    <div class="team-content text-center">
+                        <h3>Oliver Bastin</h3>
+                        <p>Web Designer</p>
+                        <a href="#">info@example.com</a>
+                        <div class="team-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end single team member -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-member mb-30 mb-sm-60">
+                    <div class="team-thumb">
+                        <img src="{% static 'images/team/3.png' %} " alt="Our Team Member">
+                    </div>
+                    <div class="team-content text-center">
+                        <h3>Erik Jonson</h3>
+                        <p>Web Developer</p>
+                        <a href="#">info@example.com</a>
+                        <div class="team-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- end single team member -->
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-member mb-30 mb-sm-60 mb-xs-60">
+                    <div class="team-thumb">
+                        <img src="{% static 'images/team/4.png' %}" alt="Our Team Member">
+                    </div>
+                    <div class="team-content text-center">
+                        <h3>Maria Mandy</h3>
+                        <p>Marketing officer</p>
+                        <a href="#">info@example.com</a>
+                        <div class="team-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="team-member mb-30 mb-sm-60 mb-xs-60">
+                    <div class="team-thumb">
+                        <img src="{% static 'images/team/4.png' %}" alt="Our Team Member">
+                    </div>
+                    <div class="team-content text-center">
+                        <h3>Coba coba</h3>
+                        <p>Marketing officer</p>
+                        <a href="#">info@example.com</a>
+                        <div class="team-social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end single team member -->
+        </div>
+    </div>
+</div> {% endcomment %}
+
+
+<div>
+    <div class="container">
+        <div class="events-list">
+            <div class="row">
+                <div class="col-xl-9 col-lg-6 col-md-12">
+                    <div class="row">
+                        <div class="col-xl-12">
+                    </div>
+                    <div class="single-events mb-30">
+                        {% for prof in hubungi %}
+                        <div class="events-wrapper">
+                            <div class="events-inner d-flex">
+                                <div class="events-thumb">
+                                    <img src="{{prof.gambar}}" alt="">
+                                </div>
+                                <div class="events-text events-text-2 white-bg">
+                                    <div class="event-text-heading d-flex mb-20">
+                                        <div class="events-text-title">
+                                            <a>
+                                                <h2 class="fw-bold text-secondary">{{prof.nama}}</h2>
+                                            </a>
+                                            <div>
+                                                <h4>{{prof.jabatan}}</h4>
+                                                <p>Daerah Syekh Nawawi Al-Bantani</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="events-para">
+                                        
+                                    </div>
+                                    <div class="events-view-btn mt-10">
+                                        <a href="{% url "hubungi" %}">Kontak Person</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                            <div class="alert alert-danger mr-4">Profil Kosong </div>
+                        {% endfor %}
+                    </div>
+                    {% comment %} <div class="single-events mb-30">
+                        <div class="events-wrapper">
+                            <div class="events-inner d-flex">
+                                <div class="events-thumb">
+                                    <img src="{% static 'img/events/events_002.png' %} " alt="">
+                                </div>
+                                <div class="events-text events-text-2 white-bg">
+                                    <div class="event-text-heading d-flex mb-20">
+                                        <div class="events-text-title">
+                                            <a href="#">
+                                                <h4>Science Fair -2018</h4>
+                                            </a>
+                                            <div class="time-area time-area-2">
+                                                <span class="ti-timer"></span>
+                                                <span class="published-time">8:00 AM - 5:00 PM</span>
+                                            </div>
+                                            <div class="time-area time-area-2">
+                                                <span class="ti-map-alt"></span>
+                                                <span class="published-time published-location">High street, USA</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="events-para">
+                                        <p>I will give you a complete account of the system and expound the actual teachings</p>
+                                    </div>
+                                    <div class="events-view-btn mt-10">
+                                        <a href="event_details.html">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> {% endcomment %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

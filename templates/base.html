@@ -1,0 +1,311 @@
+{% load static %}
+
+<html class="no-js" lang="zxx">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Nawawi Al-Bantani</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="manifest" href="site.html">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/faviconbg.png' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/meanmenu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/default.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <!-- header-start -->
+    <header id="home">
+        <div class="header-area">
+            <!-- header-top -->
+            <div class="header-top primary-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-12">
+                            <div class="header-contact-info d-flex">
+                                <div class="header-contact header-contact-phone">
+                                    <span class="ti-headphone"></span>
+                                    <p class="phone-number">+62 8223 6342293</p>
+                                </div>
+                                <div class="header-contact header-contact-email">
+                                    <span class="ti-email"></span>
+                                    <p class="email-name">nawawialbantani@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                            <div class="header-social-icon-list">
+                                <ul>
+                                    <li><a href="#"><span class="ti-facebook"></span></a></li>
+                                    <li><a href="#"><span class="ti-instagram"></span></a></li>
+                                    <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                                    <li><a href="#"><i class="bi bi-tiktok"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /end header-top -->
+            <!-- header-bottom -->
+            <div class="header-bottom-area header-sticky" style="transition: .5s;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2 col-md-6 col-6">
+                            <div class="logo">
+                                <a href="{% url "beranda" %}">
+                                    <img src="{% static 'img/logo/log.png' %}" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-10 col-lg-10 col-md-6 col-6">
+                            <div class="header-bottom-icon f-right">
+                            <a class='fas fa-sign-out-alt' href='{% url "logoutpage" %}' style='font-size:24px;'></a>
+                            </div>
+                            <div class="main-menu f-right">
+                                <nav id="mobile-menu" style="display: block;">
+                                    {% include "navbar.html" %}
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile-menu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /end header-bottom -->
+        </div>
+    </header>
+    <!-- header-end -->
+
+
+    {% block content %}
+            
+    {% endblock content %}
+
+
+    {% comment %} masuk beranda {% endcomment %}
+
+
+    
+
+
+
+
+
+
+
+
+
+    <!-- footer start -->
+    <footer id="Contact">
+        <div class="footer-area primary-bg pt-150">
+            <div class="container">
+                <div class="footer-top pb-35">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <div class="footer-widget mb-30">
+                                <div class="footer-heading">
+                                    <h1>Alamat</h1>
+                                </div>
+                                <div class="footer-para">
+                                    <p>Daerah Syekh Nawawi Al-Bantani (D) Wilayah Syekh Jumadil Kubro (Putra Pusat)</p>
+                                    <p>Jl. KH. Zaini Mun'im, Dusun Tanjung Lor, Desa Karanganyar, Kecamatan Paiton, Kabupaten Probolinggo, Provinsi Jawa Timur, Indonesia</p>
+                                    <p>PO. BOX 1 Paiton Probolinggo, 67291</p>
+                                    
+                                </div>
+                                <div class="footer-socila-icon">
+                                    <span>Follow Us</span>
+                                    <div class="footer-social-icon-list">
+                                        <ul>
+                                            <li><a href="#"><span class="ti-facebook"></span></a></li>
+                                            <li><a href="#"><span class="ti-instagram"></span></a></li>
+                                            <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+                                            <li><a href="#"><i class="bi bi-tiktok"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6">
+                            <div class="footer-widget mb-30">
+                                <div class="footer-heading">
+                                    <h1>Link Terkait</h1>
+                                </div>
+                                <div class="footer-menu clearfix">
+                                    <ul>
+                                        <li><a href="www.smpnj.sch.id">SMP Nurul Jadid</a></li>
+                                        <li><a href="#">MTs Nurul Jadid</a></li>
+                                        <li><a href="#">MA Nurul Jadid</a></li>
+                                        <li><a href="#">SMA Nurul Jadid</a></li>
+                                        <li><a href="#">SMK Nurul Jadid</a></li>
+                                        <li><a href="#">Univ. Nurul Jadid</a></li>
+                                        <li><a href="#">Sambang Santri</a></li>
+                                        <li><a href="#">PSB 2024</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 d-lg-none d-xl-block col-md-6">
+                            <div class="footer-widget mb-30">
+                                <div class="footer-heading">
+                                    <h1>Call Canter</h1>
+                                </div>
+                                <div class="recent-post d-flex">
+                                    <div class="recent-post-text">
+                                        <div class="footer-time">
+                                            <span class="ti-time"></span>
+                                            <span class="footer-published-time"> Ahad : 08.00 - 16.00  |  22.00 - 23.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recent-post d-flex">
+                                    <div class="recent-post-text">
+                                        <div class="footer-time">
+                                            <span class="ti-time"></span>
+                                            <span class="footer-published-time">Senin : 08.00 - 16.00  |  20.00 - 23.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recent-post d-flex">
+                                    <div class="recent-post-text">
+                                        <div class="footer-time">
+                                            <span class="ti-time"></span>
+                                            <span class="footer-published-time">Selasa : 08.00 - 16.00  |  22.00 - 23.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recent-post d-flex">
+                                    <div class="recent-post-text">
+                                        <div class="footer-time">
+                                            <span class="ti-time"></span>
+                                            <span class="footer-published-time">Rabu : 08.00 - 16.00  |  22.00 - 23.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recent-post d-flex">
+                                    <div class="recent-post-text">
+                                        <div class="footer-time">
+                                            <span class="ti-time"></span>
+                                            <span class="footer-published-time">Kamis : 08.00 - 16.00  |  20.00 - 23.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recent-post d-flex">
+                                    <div class="recent-post-text">
+                                        <div class="footer-time">
+                                            <span class="ti-time"></span>
+                                            <span class="footer-published-time">Jum'at : 08.00 - 16.00  |  20.00 - 23.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="recent-post d-flex">
+                                    <div class="recent-post-text">
+                                        <div class="footer-time">
+                                            <span class="ti-time"></span>
+                                            <span class="footer-published-time">Sabtu : 08.00 - 16.00  |  22.00 - 23.00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4  col-md-6">
+                            <div class="footer-widget mb-30">
+                                <div class="footer-heading">
+                                    <h1>Tentang Kami</h1>
+                                </div>
+                                <div class="footer-contact-list">
+                                    <div class="single-footer-contact-info">
+                                        <span class="ti-headphone "></span>
+                                        <span class="footer-contact-list-text">+62 812-5269-8039 (Telp 1)</span>
+                                    </div>
+                                    <div class="single-footer-contact-info">
+                                        <span class="ti-headphone "></span>
+                                        <span class="footer-contact-list-text">+62 812-8320-2442 (Telp 2)</span>
+                                    </div>
+                                    <div class="single-footer-contact-info">
+                                        <span class="ti-email "></span>
+                                        <span class="footer-contact-list-text">nawawialbantani@gmail.com</span>
+                                    </div>
+                                    <div class="single-footer-contact-info">
+                                        <span class="ti-location-pin"></span>
+                                        <span class="footer-contact-list-text">Gang D Lantai 1, Selatan Masjid</span>
+                                    </div>
+                                </div>
+                                <br></br>
+                                <div class="opening-time">
+                                    <span>Jam Pelayanan Wali Asuh</span>
+                                    <span class="opening-date">
+                                        Setiap Hari : 24 JAM
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom pt-25 pb-25">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <div class="footer-copyright text-center">
+                                    <span>Alqornain Mz, Web Developer</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+
+    <!-- JS here -->
+    <script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}"></script>
+    <script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/one-page-nav-min.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/ajax-form.js' %}"></script>
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <script src="{% static 'js/jquery.meanmenu.min.js' %}"></script>
+    <script src="{% static 'js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'js/jquery.barfiller.js' %}"></script>
+    <script src="{% static 'js/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'js/waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+
+</html>
